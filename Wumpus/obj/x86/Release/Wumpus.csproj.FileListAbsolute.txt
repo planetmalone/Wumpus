@@ -1,0 +1,4 @@
+c:\users\sean\documents\visual studio 2010\Projects\Wumpus\Wumpus\bin\Release\Wumpus.exe
+c:\users\sean\documents\visual studio 2010\Projects\Wumpus\Wumpus\bin\Release\Wumpus.pdb
+c:\users\sean\documents\visual studio 2010\Projects\Wumpus\Wumpus\obj\x86\Release\Wumpus.exe
+c:\users\sean\documents\visual studio 2010\Projects\Wumpus\Wumpus\obj\x86\Release\Wumpus.pdb
