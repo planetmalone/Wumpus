@@ -1,4 +1,12 @@
-﻿using System;
+﻿/************************************************************************************************** 
+* Map
+* 
+* Author: Sean Malone
+* 
+* Description: This class holds the list of Room objects for the game. 
+**************************************************************************************************/
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +16,21 @@ namespace Wumpus
 {
     class Map: IEnumerable<Room>
     {
-        private List<Room> rooms = new List<Room>();
+        private List<Room> rooms;
 
-        /****************************************************** 
-         * Constructor
+        /****************************************************************************************** 
+         * Constructors
          * 
          * The map is hardcoded, so the map is constructed
          * manually.
-         *****************************************************/
+         *****************************************************************************************/
+        // No parameters
         public Map()
         {
+            rooms = new List<Room>();
+
             // Add rooms to map
-            rooms.Add(null); // Not used
+            rooms.Add(new Room(0)); // Used as a null room
             rooms.Add(new Room(1));
             rooms.Add(new Room(2));
             rooms.Add(new Room(3));
@@ -63,10 +74,11 @@ namespace Wumpus
             rooms[19].AdjRooms = new Room[] { rooms[17], rooms[18], rooms[20] };
             rooms[20].AdjRooms = new Room[] { rooms[13], rooms[14], rooms[19] };
         }
-        /****************************************************** 
+
+        /****************************************************************************************** 
          * Allow access to rooms directly through Map object
          * Ex. Room1 => map[1]
-         *****************************************************/
+         *****************************************************************************************/
         public Room this[int index]
         {
             get
@@ -77,39 +89,39 @@ namespace Wumpus
             {
                 rooms[index] = value;
             }
-        }
+        } // End Indexer
 
-        /****************************************************** 
+        /****************************************************************************************** 
          * Primitive property to get room (READ-ONLY)
-         *****************************************************/
+         *****************************************************************************************/
         public List<Room> Rooms
         {
             get
             {
                 return rooms;
             }
-        }
+        } // End Room
 
 
-        /****************************************************** 
+        /****************************************************************************************** 
          * Enumerable<Room>
-         *****************************************************/
+         *****************************************************************************************/
         public IEnumerator<Room> GetEnumerator()
         {
             return rooms.GetEnumerator();
-        }
+        } // End GetEnumerator
 
-        /****************************************************** 
+        /****************************************************************************************** 
          * Enumerable
-         *****************************************************/
+         *****************************************************************************************/
         IEnumerator<Room> IEnumerable<Room>.GetEnumerator()
         {
             return GetEnumerator();
-        }
+        } // End <Room>.GetEnumerator
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-    }
-}
+        } // End General.GetEnumerator
+    } // End Map
+} // End Document
